@@ -1,4 +1,11 @@
-const BASE_URL = "/mini-html5-framework/";
+let current_url = window.location.href;
+let BASE_URL;
+
+if (current_url.split('/')[current_url.length - 1] === "") {
+  BASE_URL = current_url.split('/')[current_url.length - 2];
+} else {
+  BASE_URL = window.location.origin + '/';
+}
 
 function loadAndRenderTemplate(url) {
   /**
@@ -7,7 +14,7 @@ function loadAndRenderTemplate(url) {
    * to be injected into `index.html`
    */
   var client = new XMLHttpRequest();
-  client.open('GET', BASE_URL + url);
+  client.open('GET', url);
   client.onreadystatechange = function() {
     renderTemplate(client.responseText);
   }
