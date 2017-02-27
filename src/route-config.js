@@ -9,5 +9,10 @@ Router
     url: '/about',
     templateUrl: 'templates/about.html',
     controller: 'AboutController'
+  },
+  documentation: {
+    url: '/documentation',
+    templateUrl: 'templates/documentation.html',
+    controller: 'DocumentationController'
   }
 });
