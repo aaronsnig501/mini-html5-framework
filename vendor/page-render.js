@@ -1,3 +1,5 @@
+const BASE_URL = window.location.origin;
+
 function loadAndRenderTemplate(url) {
   /**
    * Retrieve the HTML from a
@@ -5,7 +7,7 @@ function loadAndRenderTemplate(url) {
    * to be injected into `index.html`
    */
   var client = new XMLHttpRequest();
-  client.open('GET', url);
+  client.open('GET', BASE_URL + url);
   client.onreadystatechange = function() {
     renderTemplate(client.responseText);
   }
@@ -30,7 +32,7 @@ function showPage(page) {
   if (page.template) {
     renderTemplate(page.template);
   } else if (page.templateUrl) {
-    loadAndRenderTemplate(page.templateUrl);
+    loadAndRenderTemplate(BASE_URL + page.templateUrl);
     window[page.controller]();
   } else {
     alert(`No template found for the page ${page.url}`);
@@ -55,7 +57,7 @@ function goToPage(pageName) {
 
   let newState = (history.state && history.state[0] instanceof Object) ? history.state : [];
   newState.push({page: page});
-  history.pushState(newState, page.url, page.url);
+  history.pushState(newState, BASE_URL + page.url, BASE_URL + page.url);
   showPage(page);
   return false; // Needed to avoid default link behavior
 }
@@ -63,6 +65,6 @@ function goToPage(pageName) {
 window.onpopstate = function() {
   let newState = (history.state && history.state[0] instanceof Object) ? history.state : [];
   let previousPage = (newState.length) ? newState.pop().page : Router.getRoute('home');
-  history.replaceState(newState, previousPage.url, previousPage.url)
+  history.replaceState(newState, BASE_URL + previousPage.url, BASE_URL + previousPage.url)
   renderTemplate(previousPage.template);
 };
