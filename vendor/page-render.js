@@ -1,4 +1,4 @@
-const BASE_URL = window.location.origin;
+const BASE_URL = "/mini-html5-framework/";
 
 function loadAndRenderTemplate(url) {
   /**
