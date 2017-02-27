@@ -1,11 +1,4 @@
-let current_url = window.location.href;
-let BASE_URL;
-
-if (current_url.split('/')[current_url.length - 1] === "") {
-  BASE_URL = current_url.split('/')[current_url.length - 2];
-} else {
-  BASE_URL = window.location.origin + '/';
-}
+const BASE_URL = window.location.href;
 
 function loadAndRenderTemplate(url) {
   /**
@@ -39,7 +32,7 @@ function showPage(page) {
   if (page.template) {
     renderTemplate(page.template);
   } else if (page.templateUrl) {
-    loadAndRenderTemplate(BASE_URL + page.templateUrl);
+    loadAndRenderTemplate(BASE_URL + '/' + page.templateUrl);
     window[page.controller]();
   } else {
     alert(`No template found for the page ${page.url}`);
