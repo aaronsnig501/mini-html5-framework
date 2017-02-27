@@ -14,9 +14,9 @@ var Router = {
 
     // Check if `home` if defined as a routes
     // and if it is, use it as the landing page
-    if (this.getRoute("home") !== undefined) {
-      goToPage("home");
-    }
+    // if (this.getRoute("home") !== undefined) {
+    //   goToPage("home");
+    // }
   },
   getRoutes: function() {
     /**
