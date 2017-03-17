@@ -1,17 +1,17 @@
 Router
 .add({
   home: {
-    url: '/',
+    url: '',
     templateUrl: 'templates/home.html',
     controller: 'HomeController'
   },
   about: {
-    url: '/about',
+    url: 'about',
     templateUrl: 'templates/about.html',
     controller: 'AboutController'
   },
   documentation: {
-    url: '/documentation',
+    url: 'documentation',
     templateUrl: 'templates/documentation.html',
     controller: 'DocumentationController'
   }

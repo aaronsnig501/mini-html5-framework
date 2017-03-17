@@ -2,71 +2,25 @@
 <html>
 <head>
     <title>Trying out HTML5 url history manipulation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-left">
-      <a class="nav-item">
-        <h2>mini-html5-framework</h2>
-      </a>
-    </div>
-    <div class="nav-center">
-      <a class="nav-item" href="https://github.com/yoniLavi/mini-html5-framework">
-        <span class="icon">
-          <i class="fa fa-github"></i>
-        </span>
-      </a>
-    </div>
-    <span class="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </span>
-
-    <div class="nav-right nav-menu">
-      <a class="nav-item" href="#" onclick="return goToPage('home');">
-        Home
-      </a>
-      <a class="nav-item" href="#" onclick="return goToPage('about');">
-        About
-      </a>
-      <a class="nav-item" href="#" onclick="return goToPage('documentation');">
-        Documentation
-      </a>
-      <span class="nav-item">
-        <a class="button is-primary">
-          <span class="icon">
-            <i class="fa fa-download"></i>
-          </span>
-          <span>Download</span>
-        </a>
-      </span>
-    </div>
+  <nav>
+    <a id="brand" href="#" onclick="return goToPage('home');">MINI</a>
+    <ul>
+      <li><a href="#" onclick="return goToPage('home');">Home</a></li>
+      <li><a href="#" onclick="return goToPage('about');">About</a></li>
+      <li><a href="#" onclick="return goToPage('documentation');">Docs</a></li>
+    </ul>
   </nav>
   <div id="templated-section">
 
   </div>
-  <footer class="footer">
-    <div class="container">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
-        </p>
-        <p>
-          <a class="icon" href="https://github.com/jgthms/bulma">
-            <i class="fa fa-github"></i>
-          </a>
-        </p>
-      </div>
-    </div>
-  </footer>
-  <script src="vendor/page-render.js"></script>
-  <script src="vendor/router.js"></script>
-  <script src="src/controller.js"></script>
-  <script src="src/route-config.js"></script>
+  <script src="js/vendor/mini-html5-framework/templater.js"></script>
+  <script src="js/vendor/mini-html5-framework/page-render.js"></script>
+  <script src="js/vendor/mini-html5-framework/router.js"></script>
+  <script src="js/src/controller.js"></script>
+  <script src="js/src/route-config.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 const BASE_URL = window.location.href;
 
-function loadAndRenderTemplate(url) {
+function loadAndRenderTemplate(url, params) {
   /**
    * Retrieve the HTML from a
    * HTML given, from the given templateUrl
@@ -9,17 +9,18 @@ function loadAndRenderTemplate(url) {
   var client = new XMLHttpRequest();
   client.open('GET', url);
   client.onreadystatechange = function() {
-    renderTemplate(client.responseText);
+    renderTemplate(client.responseText, params);
   }
   client.send();
 }
 
-function renderTemplate(template) {
+function renderTemplate(template, params) {
   /**
    * Inject template into `index.html`
    */
   // TODO: add actual templating engine?
-  document.getElementById('templated-section').innerHTML = template;
+  var result = render(template, params)
+  document.getElementById('templated-section').innerHTML = result;
 }
 
 function showPage(page) {
@@ -32,8 +33,8 @@ function showPage(page) {
   if (page.template) {
     renderTemplate(page.template);
   } else if (page.templateUrl) {
-    loadAndRenderTemplate(BASE_URL + '/' + page.templateUrl);
-    window[page.controller]();
+    var params = window[page.controller]();
+    loadAndRenderTemplate(BASE_URL + '/' + page.templateUrl, params);
   } else {
     alert(`No template found for the page ${page.url}`);
   }
